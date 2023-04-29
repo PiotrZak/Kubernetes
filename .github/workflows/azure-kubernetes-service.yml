@@ -44,6 +44,9 @@ env:
 jobs:
 
   loginToAzure:
+    permissions:
+      contents: read
+      id-token: write
     runs-on: ubuntu latest
     steps:
       # Checks out the repository this file is in
