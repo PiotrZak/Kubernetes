@@ -42,11 +42,9 @@ env:
   DEPLOYMENT_MANIFEST_PATH: "your-deployment-manifest-path"
 
 jobs:
-  buildImage:
-    permissions:
-      contents: read
-      id-token: write
-    runs-on: ubuntu-latest
+
+  loginToAzure:
+    runs-on: ubuntu latest
     steps:
       # Checks out the repository this file is in
       - uses: actions/checkout@v3
@@ -59,6 +57,12 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
+  buildImage:
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
       # Builds and pushes an image up to your Azure Container Registry
       - name: Build and push image to ACR
         run: |
