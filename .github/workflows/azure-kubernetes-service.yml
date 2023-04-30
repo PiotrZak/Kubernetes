@@ -37,7 +37,7 @@ on:
 env:
   AZURE_CONTAINER_REGISTRY: "AKSMLOpsCourse"
   CONTAINER_NAME: "nginx"
-  RESOURCE_GROUP: "907ab922-2869-456e-ad8a-85fe55c9f90c"
+  RESOURCE_GROUP: "Kubernetes"
   CLUSTER_NAME: "your-cluster-name"
   DEPLOYMENT_MANIFEST_PATH: "your-deployment-manifest-path"
 
