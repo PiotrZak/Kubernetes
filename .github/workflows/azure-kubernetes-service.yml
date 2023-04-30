@@ -61,9 +61,13 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       # Builds and pushes an image up to your Azure Container Registry
-      - name: Build and push image to ACR
-        run: |
-          az acr build --image ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
+      - name: Build image on ACR
+        uses: azure/CLI@61bb69d64d613b52663984bf12d6bac8fd7b3cc8
+        with:
+          azcliversion: 2.29.1
+          inlineScript: |
+            az configure --defaults acr=${{ env.AZURE_CONTAINER_REGISTRY }}
+            az acr build -t  -t ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.CONTAINER_NAME }}:${{ github.sha }}
 
   deploy:
     permissions:
