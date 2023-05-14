@@ -39,7 +39,7 @@ env:
   CONTAINER_NAME: "mlapp"
   RESOURCE_GROUP: "Kubernetes"
   CLUSTER_NAME: "ml-app"
-  DEPLOYMENT_MANIFEST_PATH: "your-deployment-manifest-path"
+  DEPLOYMENT_MANIFEST_PATH: "kubernetes_manifest.yml"
 
 jobs:
 
