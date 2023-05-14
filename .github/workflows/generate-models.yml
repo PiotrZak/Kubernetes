@@ -9,7 +9,7 @@ jobs:
   execute_script:
     runs-on: ubuntu-latest  # You can choose a different runner, if needed
 
-  steps:
+    steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
