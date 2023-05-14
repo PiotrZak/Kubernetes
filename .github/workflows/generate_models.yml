@@ -1,0 +1,25 @@
+name: Generate Multiple ML Models
+
+on:
+  push:
+    branches:
+      - main  # Replace with the branch you want to trigger the workflow on
+
+jobs:
+  execute_script:
+    runs-on: ubuntu-latest  # You can choose a different runner, if needed
+
+  steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8  # Replace with the Python version you need
+
+      - name: Install dependencies (if any)
+        run: pip install -r models/requirements.txt  # If you have any dependencies, specify them in a requirements.txt file
+
+      - name: Execute Python script
+        run: python models/generate_models.py  # Replace with the path to your Python script within the models folder
