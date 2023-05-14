@@ -3,13 +3,13 @@ import subprocess
 from concurrent.futures import ThreadPoolExecutor
 
 # Get the current directory
-folder_path = os.getcwd()
+current_directory = os.getcwd()
 
-# Get a list of all files in the folder
-files = os.listdir(folder_path)
+# Define the path to the models folder
+models_directory = os.path.join(current_directory, "models")
 
 # Filter the files to include only Python files
-python_files = [file for file in files if file.endswith(".py")]
+python_files = [file for file in models_directory if file.endswith(".py")]
 
 def open_python_file(file):
     file_path = os.path.join(folder_path, file)
