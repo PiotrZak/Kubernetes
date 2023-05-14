@@ -59,12 +59,27 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+
+      # todo: find a way to automating include machine learning models (maybe from Blob Storage) files into dockerfile
+
+      # - name: Start serving_base container
+      #   run: |
+      #     docker run -d --name serving_base tensorflow/serving
+
+      # - name: Copy model to serving_base container
+      #   run: |
+      #     docker cp ./mymodel serving_base:/models/mymodel
+
+      # - name: Commit changes to new image
+      #   run: |
+      #     docker commit --change "ENV MODEL_NAME mymodel" serving_base my-registry/mymodel-serving
+      #     docker stop serving_base
           
       # Builds and pushes an image up to your Azure Container Registry
       - name: Build and push image to ACR
         run: |
           az acr build --image ${{ env.CONTAINER_NAME }}:latest --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
-
 
   deploy:
     permissions:
