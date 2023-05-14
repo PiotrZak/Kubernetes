@@ -21,4 +21,4 @@ model.compile(optimizer='adam',
 # Training
 model.fit(x_train, y_train, epochs=5)
 model(x_test[:2])
-model.save('./mymodel/1/')
+model.save('../mymodel/1/')
