@@ -2,9 +2,9 @@
 Copy Model into DockerFile.
 
 ML Certificates - to have access (on macOs terminal):
-
+```
 bash /Applications/Python*/Install\ Certificates.command
-
+```
 https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
 11 MB
 
