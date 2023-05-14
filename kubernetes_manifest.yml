@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ml-serving
-        image: AKSMLOpsCourse/mlapp
+        image: aksmlopscourse.azurecr.io/mlapp:latest
        # image: pzdesign/ml-serving
         ports:
         - containerPort: 8501
