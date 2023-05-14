@@ -2,6 +2,9 @@
 import tensorflow as tf
 import datetime
 import os
+
+print ('Starting generating')
+
 # Loading the data
 mnist = tf.keras.datasets.mnist
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
@@ -24,9 +27,11 @@ model.compile(optimizer='adam',
 model.fit(x_train, y_train, epochs=5)
 model(x_test[:2])
 
-# Save Model
+# Save Model into current Operating system
+# could be also saved into Blob Storage or S3
+
 current_date = datetime.date.today().strftime("%Y-%m-%d")
-path_to_save_model = f"../{current_date}/1/"
+path_to_save_model = f"../{current_date}/2/"
 os.makedirs(path_to_save_model, exist_ok=True)
 
 model.save(path_to_save_model)

@@ -1,4 +1,4 @@
-name: Generate Multiple ML Models
+name: Generate ML Models
 
 on:
   push:

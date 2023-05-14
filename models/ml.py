@@ -2,9 +2,15 @@
 import tensorflow as tf
 import datetime
 import os
+
 # Loading the data
+# needs certificate to access data
+
+# eg. - can be connected into another data source
 mnist = tf.keras.datasets.mnist
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+
 # Data preprocessing (here, normalization)
 x_train, x_test = x_train / 255.0, x_test / 255.0
 # Building the model
