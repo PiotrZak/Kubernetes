@@ -38,7 +38,7 @@ env:
   AZURE_CONTAINER_REGISTRY: "AKSMLOpsCourse"
   CONTAINER_NAME: "mlapp"
   RESOURCE_GROUP: "Kubernetes"
-  CLUSTER_NAME: "your-cluster-name"
+  CLUSTER_NAME: "ml-app"
   DEPLOYMENT_MANIFEST_PATH: "your-deployment-manifest-path"
 
 jobs:
