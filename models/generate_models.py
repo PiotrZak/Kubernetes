@@ -3,7 +3,7 @@ import subprocess
 import concurrent.futures
 
 # Get the current directory
-current_directory = os.getcwd()
+current_directory = os.path.join(os.getcwd(), "models")
 
 print(current_directory)
 
