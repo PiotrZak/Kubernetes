@@ -41,7 +41,7 @@ jobs:
 
       - name: Copy model to serving_base container
         run: |
-          docker cp ./2023-05-14/1 serving_base:/models/mymodel
+          docker cp ./2023-05-14 serving_base:/models/mymodel
 
       - name: Commit changes to new image
         run: |
