@@ -1,6 +1,6 @@
 FROM tensorflow/serving
 
-ARG ModelName="mymodel"
+ARG ModelName="2023-05-14"
 
 COPY ./$ModelName /models/$ModelName
 ENV MODEL_NAME $ModelName
