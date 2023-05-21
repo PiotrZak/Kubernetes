@@ -38,7 +38,6 @@ jobs:
       - name: Copy model to serving_base container - Commit changes to new image - Tag commited image
         run: |
           docker run -d -t --name serving_base tensorflow/serving
-          docker ps -t
           docker cp ./2023-05-14 serving_base:/models/2023-05-14
           docker exec -it serving_base ls /models/2023-05-14
           docker commit --change "ENV MODEL_NAME 2023-05-14" serving_base my-registry/mymodel-serving
