@@ -26,6 +26,7 @@ loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 model.compile(optimizer='adam',
               loss=loss_fn,
               metrics=['accuracy'])
+              
 # Training
 model.fit(x_train, y_train, epochs=5)
 model(x_test[:2])
@@ -34,5 +35,6 @@ model(x_test[:2])
 current_date = datetime.date.today().strftime("%Y-%m-%d")
 path_to_save_model = f"../{current_date}/1/"
 os.makedirs(path_to_save_model, exist_ok=True)
+
 
 model.save(path_to_save_model)
