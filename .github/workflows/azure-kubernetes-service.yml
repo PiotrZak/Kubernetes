@@ -41,8 +41,13 @@ jobs:
 
       - name: Commit changes to new image
         run: |
-          docker commit --change "ENV MODEL_NAME mymodel" serving_base my-registry/mymodel-serving
+          docker commit --change "ENV MODEL_NAME 2023-05-14/1" serving_base my-registry/mymodel-serving
           docker stop serving_base
+          
+      - name: Kill and remove previous image
+        run: |
+          docker kill serving_base
+          docker rm serving_base
           
       - name: Tag Commited image
         run: |
