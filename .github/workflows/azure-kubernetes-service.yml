@@ -37,19 +37,13 @@ jobs:
           
       - name: List ML Models
         run: |
-          ls -l ./2023-05-14/1
+          ls -l ./2023-05-14
 
-      - name: Copy model to serving_base container
+      - name: Copy model to serving_base container - Commit changes to new image - Tag commited image
         run: |
-          docker cp ./2023-05-14 serving_base:/models/mymodel
-
-      - name: Commit changes to new image
-        run: |
-          docker commit --change "ENV MODEL_NAME mymodel" serving_base my-registry/mymodel-serving
+          docker cp ./2023-05-14 serving_base:/models/2023-05-14
+          docker commit --change "ENV MODEL_NAME 2023-05-14" serving_base my-registry/mymodel-serving
           docker stop serving_base
-          
-      - name: Tag Commited image
-        run: |
           docker tag my-registry/mymodel-serving aksmlopscourse.azurecr.io/mymodel-serving
           
       - name: List available images
