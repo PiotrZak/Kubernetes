@@ -39,19 +39,11 @@ jobs:
         run: |
           docker run -d -t --name serving_base tensorflow/serving
           docker ps
-
           docker cp ./2023-05-14 serving_base:/models/2023-05-14
           docker exec -it serving_base ls /models/2023-05-14
-          
           docker commit --change "ENV MODEL_NAME 2023-05-14" serving_base my-registry/mymodel-serving
           docker stop serving_base
-          
           docker tag my-registry/mymodel-serving aksmlopscourse.azurecr.io/mymodel-serving
-          docker images
-          
-          
-      - name: List available images
-        run: |
           docker images
           
       # Builds and pushes an image up to your Azure Container Registry
