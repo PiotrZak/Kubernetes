@@ -55,7 +55,10 @@ jobs:
       # Builds and pushes an image up to your Azure Container Registry
       - name: Build and push image to ACR
         run: |
-          az acr build --image aksmlopscourse.azurecr.io/mymodel-serving:latest --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
+          az acr login --name ${{ env.AZURE_CONTAINER_REGISTRY }}
+          docker tag my-registry/mymodel-serving aksmlopscourse.azurecr.io/mymodel-serving
+          docker push aksmlopscourse.azurecr.io/mymodel-serving
+      # az acr build --image aksmlopscourse.azurecr.io/mymodel-serving:latest --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
       # az acr build --image ${{ env.CONTAINER_NAME }}:latest --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
 
   deploy:
