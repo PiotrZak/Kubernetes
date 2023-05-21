@@ -1,8 +1,9 @@
 FROM tensorflow/serving
 
-COPY ./2023-05-14 /models/2023-05-14
+ARG ModelName="mymodel"
 
-ENV MODEL_NAME 2023-05-14
+COPY ./$ModelName /models/$ModelName
+ENV MODEL_NAME $ModelName
 
 
 # FROM python:3.8-slim-buster
