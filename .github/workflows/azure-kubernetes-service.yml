@@ -35,24 +35,23 @@ jobs:
         run: |
           ls -l ./2023-05-14
 
-      - name: Copy model to serving_base container - Commit changes to new image - Tag commited image
-        run: |
-          docker run -d --name serving_base tensorflow/serving
-          docker cp ./2023-05-14 serving_base:/models/2023-05-14
-          docker exec -it serving_base ls /models/2023-05-14
-          docker commit --change "ENV MODEL_NAME 2023-05-14" serving_base my-registry/mymodel-serving
-          docker stop serving_base
-          docker tag my-registry/mymodel-serving aksmlopscourse.azurecr.io/mymodel-serving
-          docker images
+#       - name: Copy model to serving_base container - Commit changes to new image - Tag commited image
+#         run: |
+#           docker run -d --name serving_base tensorflow/serving
+#           docker cp ./2023-05-14 serving_base:/models/2023-05-14
+#           docker exec -it serving_base ls /models/2023-05-14
+#           docker commit --change "ENV MODEL_NAME 2023-05-14" serving_base my-registry/mymodel-serving
+#           docker stop serving_base
+#           docker tag my-registry/mymodel-serving aksmlopscourse.azurecr.io/mymodel-serving
+#           docker images
           
       # Builds and pushes an image up to your Azure Container Registry
       - name: Build and push image to ACR
         run: |
-          az acr login --name ${{ env.AZURE_CONTAINER_REGISTRY }}
-          docker tag my-registry/mymodel-serving aksmlopscourse.azurecr.io/mymodel-serving
-          docker push aksmlopscourse.azurecr.io/mymodel-serving
-      # az acr build --image aksmlopscourse.azurecr.io/mymodel-serving:latest --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
-      # az acr build --image ${{ env.CONTAINER_NAME }}:latest --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
+              az acr build --image ${{ env.CONTAINER_NAME }}:latest --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
+      #az acr login --name ${{ env.AZURE_CONTAINER_REGISTRY }}
+      #docker tag my-registry/mymodel-serving aksmlopscourse.azurecr.io/mymodel-serving
+      #docker push aksmlopscourse.azurecr.io/mymodel-serving
 
   deploy:
     permissions:
