@@ -62,9 +62,9 @@ helm install <full name override> <chart name>/ --values <chart name>/values.yam
 
 helm install cassandra cassandra/ --values cassandra/env/test/values.yaml
 
-View all helm installations:
 
 > [!NOTE]
+> View all helm installations:
 > ```
 > helm list
 > ```
