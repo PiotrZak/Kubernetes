@@ -8,16 +8,18 @@ Advantages of Cassandra:
 4. It features data replication, so it's fault-tolerant and has high availability.
 
 _____
-[!IMPORTANT] 
-MakeFile:
-```
-make deploy
-```
-[!NOTE] 
-```
-helm plugin list
-```
--> secrets 2.0.2   This plugin provides secrets values encryption for Helm charts secure storing
+> [!IMPORTANT] 
+> MakeFile:
+> ```
+> make deploy
+> ```
+
+
+> [!NOTE] 
+> ```
+> helm plugin list
+> ```
+> -> secrets 2.0.2   This plugin provides secrets values encryption for Helm charts secure storing
 
 ____
 
@@ -29,10 +31,10 @@ MiniKube -> minikube is local Kubernetes, focusing on making it easy to learn an
 minikube status
 minikube start
 ```
-[!NOTE] 
-```
-minikube dashboard
-```
+> [!NOTE] 
+> ```
+> minikube dashboard
+> ```
 ____
 
 Leveraging Kubernetes concepts such as PersistentVolume and StatefulSets, we can provide a resilient installation of Cassandra and be confident that its data (state) are safe.
@@ -62,20 +64,21 @@ helm install cassandra cassandra/ --values cassandra/env/test/values.yaml
 
 View all helm installations:
 
-[!NOTE]
-```
-helm list
-```
+> [!NOTE]
+> ```
+> helm list
+> ```
 
-[!NOTE]
-Information about specific installations:
-```
-helm get all cassandra
-```
+> [!NOTE]
+> Information about specific installations:
+> ```
+> helm get all cassandra
+> ```
 
 Purging the old release:
-[!NOTE]
-helm uninstall release_name
+
+> [!NOTE]
+> helm uninstall release_name
 
 
 1. Settings ENV Variables:
