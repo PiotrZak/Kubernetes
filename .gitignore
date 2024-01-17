@@ -1,0 +1,8 @@
+
+Kubernetes.Dotnet/.DS_Store
+*.props
+*.dll
+*.pdb
+*.cache
+*.editorconfig
+*.CopyComplete

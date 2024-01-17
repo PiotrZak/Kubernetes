@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "YFgWMWmP+is4LsY7zoNJKfe99hz0Nj7QfmVDW1X87M8=",
+  "Source": "KubernetesDemoApp",
+  "BasePath": "_content/KubernetesDemoApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
