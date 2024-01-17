@@ -1,6 +1,12 @@
 
 Helm is a package manager for Kubernetes that streamlines the deployment and management of applications, while Minikube is a tool that enables running Kubernetes clusters locally for development and testing purposes.
 
+https://learn.microsoft.com/en-us/training/modules/dotnet-deploy-microservices-kubernetes/
+
+https://blog.wemakedevs.org/deploy-a-net-application-on-kubernetes
+
+
+
 
 
 ## Open Kubernetes Dashboard:
