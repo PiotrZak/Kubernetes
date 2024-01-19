@@ -2,23 +2,20 @@ version: '3.4'
 
 services:  
   ordering.api:
-   environment:
-     - ASPNETCORE_ENVIRONMENT=Development
-     - "DatabaseSettings__ConnectionString=Server=orderdb;Database=OrderDb;User Id=sa;Password=SwN12345678;"
-   ports:
-     - "8091:80"
-
-   depends_on:
-     - db
+   image: ${DOCKER_REGISTRY-}orderingapi
+   build:
+     context: .
+     dockerfile: Microservices/Ordering/Ordering.API/Dockerfile
+     args:
+       - NUGET_PAT
 
   customer.api:
-   environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings__ConnectionString=Server=customerdb;Database=CustomerDb;User Id=sa;Password=SwN12345678;"
-   ports:
-     - "8092:80"
-   depends_on:
-     - db
+   image: ${DOCKER_REGISTRY-}customerapi
+   build:
+     context: .
+     dockerfile: Microservices/Customer/Customer.API/Dockerfile
+     args:
+       - NUGET_PAT
 
   db:
    container_name: DB
